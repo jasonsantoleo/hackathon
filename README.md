@@ -18,59 +18,32 @@ Tailwind CSS for styling
 shadcn/ui for UI components
 Vite for build tooling
 
-# Backend
+## Backend
 
 Node.js
 Express.js
 Machine Learning Services
 RESTful API architecture
 
-# Development Tools
+## Development Tools
 
 Git for version control
 ESLint for code quality
 PostCSS for CSS processing
 JSConfig for JavaScript configuration
 
-## Novelty
+# Novelty
 
 AI-Driven Insights: Automated generation of business insights with a focus on sustainability metrics
 Real-time Analytics: Live monitoring and analysis of business performance
 Sustainable Business Metrics: Integration of environmental impact considerations into traditional business analytics
 Intelligent Recommendations: ML-powered suggestions for improving business sustainability
 
-
-graph TB
-    subgraph User Interface
-        A[Dashboard] --> B[Key Metrics]
-        A --> C[Insights Panel]
-        A --> D[Immediate Attention]
-    end
-    
-    subgraph Backend Services
-        E[Express Server] --> F[ML Service]
-        F --> G[Data Processing]
-        G --> H[Insight Generation]
-    end
-    
-    subgraph Data Flow
-        I[User Input] --> J[API Layer]
-        J --> K[Business Logic]
-        K --> L[ML Processing]
-        L --> M[Response]
-    end
+<img width="1115" alt="Screenshot 2025-01-20 at 11 22 07 PM" src="https://github.com/user-attachments/assets/efef4ed4-6eb8-4f79-885c-9dd51373b4aa" />
 
 ## Other Features
-Project Structure
-jasonsantoleo-techstars-63-sustain-ai-thon/
-├── client/              # Frontend React application
-│   ├── src/
-│   │   ├── components/  # React components
-│   │   ├── store/      # Redux store
-│   │   └── lib/        # Utilities
-└── server/             # Backend Node.js application
-    ├── routes/         # API routes
-    └── services/       # ML services
+
+<img width="652" alt="Screenshot 2025-01-20 at 11 23 22 PM" src="https://github.com/user-attachments/assets/470a779d-3679-4fe6-b922-68bb9562a9c2" />
 
 ## Key Components
 
@@ -83,19 +56,25 @@ Insights Component: AI-generated business recommendations
 
 1)Clone the repository
 2)Install dependencies:
-  # Frontend
+
+# Frontend
+
   cd client
   npm install
   
-  # Backend
+# Backend
+  
   cd ../server
   npm install
+  
 3)start dev server 
-  # Frontend
+# Frontend
+
   cd client
   npm run dev
   
-  # Backend
+# Backend
+
   cd ../server
   npm start
 
