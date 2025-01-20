@@ -60,22 +60,26 @@ Insights Component: AI-generated business recommendations
 # Frontend
 
   > cd client
+
   > npm install
   
 # Backend
   
   > cd ../server
+
   > npm install
   
 3)start dev server 
 # Frontend
 
   > cd client
+
   > npm run dev
   
 # Backend
 
   > cd ../server
+
   > npm start
 
 
