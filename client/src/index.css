@@ -63,4 +63,7 @@
   body {
     @apply bg-background text-foreground;
   }
+  .col{
+    border: 2px solid black;
+  }
 }

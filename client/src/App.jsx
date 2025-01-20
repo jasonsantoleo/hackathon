@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import Commonform from "./components/common/form";
-import { testFormControls } from "./config/test";
+import Dashboardpages from "./components/pages/dashboard/dashboardPage";
 
 const initialFormData = {
   fullName: "",
@@ -17,9 +16,7 @@ function App() {
     
   },[formData])
   return (
-   <div>
-    
-   </div>
+   <Dashboardpages/>
   )
 }
 
