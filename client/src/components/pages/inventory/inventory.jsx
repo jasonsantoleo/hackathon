@@ -14,8 +14,21 @@ import { Card, CardHeader, CardTitle, CardContent } from "../../ui/card";
 import { Badge } from "../../ui/badge";
 import { Search, PlusCircle } from 'lucide-react';
 import Header from '../../layout/header';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../../../components/ui/sheet';
+import Commonform from '../../common/form';
+import { InventoryformControls } from '../../../config/test';
+
+const initialData = {
+  name: '',
+  sku: '',
+  quantity: '',
+  price: '',
+  status: '',
+};
 
 const InventoryManagement = () => {
+  const [formData, setFormData] = useState(initialData);
+  const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   
   // Dummy data
@@ -46,61 +59,93 @@ const InventoryManagement = () => {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      // Here you would typically make an API call to add the product
+      console.log('Submitting form data:', formData);
+      
+      // Reset form and close sheet after successful submission
+      setFormData(initialData);
+      setIsOpen(false);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
   return (
     <div>
-        <Header/>
-        <div className='w-full flex items-center justify-center'>
-            <Card className="w-full max-w-4xl rounded-none">
-            <CardHeader>
-                <div className="flex justify-between items-center">
-                <CardTitle>Inventory Management</CardTitle>
-                <Button className="flex items-center gap-2">
+      <Header />
+      <div className="w-full flex items-center justify-center">
+        <Card className="w-full max-w-4xl rounded-none">
+          <CardHeader>
+            <div className="flex justify-between items-center">
+              <CardTitle>Inventory Management</CardTitle>
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild>
+                  <Button className="flex items-center gap-2">
                     <PlusCircle className="h-4 w-4" />
                     Add Product
-                </Button>
-                </div>
-            </CardHeader>
-            <CardContent>
-                <div className="relative mb-6">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
-                <Input
-                    placeholder="Search by product name or SKU..."
-                    className="pl-8"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                </div>
-                
-                <Table>
-                <TableCaption>Current inventory status as of today</TableCaption>
-                <TableHeader>
-                    <TableRow>
-                    <TableHead>Product Name</TableHead>
-                    <TableHead>SKU</TableHead>
-                    <TableHead className="text-right">Quantity</TableHead>
-                    <TableHead className="text-right">Price</TableHead>
-                    <TableHead>Status</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {filteredInventory.map((item) => (
-                    <TableRow key={item.id}>
-                        <TableCell className="font-medium">{item.name}</TableCell>
-                        <TableCell>{item.sku}</TableCell>
-                        <TableCell className="text-right">{item.quantity}</TableCell>
-                        <TableCell className="text-right">₹{item.price}</TableCell>
-                        <TableCell>
-                        <Badge className={`${getStatusColor(item.status)} text-white`}>
-                            {item.status}
-                        </Badge>
-                        </TableCell>
-                    </TableRow>
-                    ))}
-                </TableBody>
-                </Table>
-            </CardContent>
-            </Card>
-        </div>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent>
+                  <SheetHeader>
+                    <SheetTitle>Add New Product</SheetTitle>
+                  </SheetHeader>
+                  <div className="py-6">
+                    <Commonform
+                      formControls={InventoryformControls}
+                      formData={formData}
+                      onSubmit={handleSubmit}
+                      setFormData={setFormData}
+                      buttonText='add'
+                    />
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="relative mb-6">
+              <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
+              <Input
+                placeholder="Search by product name or SKU..."
+                className="pl-8"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            
+            <Table>
+              <TableCaption>Current inventory status as of today</TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Product Name</TableHead>
+                  <TableHead>SKU</TableHead>
+                  <TableHead className="text-right">Quantity</TableHead>
+                  <TableHead className="text-right">Price</TableHead>
+                  <TableHead>Status</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredInventory.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell className="font-medium">{item.name}</TableCell>
+                    <TableCell>{item.sku}</TableCell>
+                    <TableCell className="text-right">{item.quantity}</TableCell>
+                    <TableCell className="text-right">₹{item.price}</TableCell>
+                    <TableCell>
+                      <Badge className={`${getStatusColor(item.status)} text-white`}>
+                        {item.status}
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };

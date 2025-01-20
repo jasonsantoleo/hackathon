@@ -91,3 +91,81 @@ export const registerFormControls=[
       type:"text",  
   }
 ]
+export const InventoryformControls = [
+  {
+    id: "name",
+    name: "name",
+    label: "Product Name",
+    type: "text",
+    placeholder: "Enter product name",
+    required: true,
+    validation: {
+      required: "Product name is required",
+      minLength: {
+        value: 3,
+        message: "Product name must be at least 3 characters"
+      }
+    }
+  },
+  {
+    id: "sku",
+    name:"sku",
+    label: "SKU",
+    type: "text",
+    placeholder: "Enter SKU",
+    required: true,
+    validation: {
+      required: "SKU is required",
+      pattern: {
+        value: /^[A-Z]{2}-\d{3}$/,
+        message: "SKU must be in format XX-000"
+      }
+    }
+  },
+  {
+    id: "quantity",
+    name:"quantity",
+    label: "Quantity",
+    type: "number",
+    placeholder: "Enter quantity",
+    required: true,
+    validation: {
+      required: "Quantity is required",
+      min: {
+        value: 0,
+        message: "Quantity cannot be negative"
+      }
+    }
+  },
+  {
+    id: "price",
+    name:"price",
+    label: "Price",
+    type: "number",
+    placeholder: "Enter price",
+    required: true,
+    validation: {
+      required: "Price is required",
+      min: {
+        value: 0,
+        message: "Price cannot be negative"
+      }
+    }
+  },
+  {
+    id: "status",
+    name:"status",
+    label: "Status",
+    type: "select",
+    placeholder: "Select status",
+    required: true,
+    options: [
+      { value: "In Stock", label: "In Stock" },
+      { value: "Low Stock", label: "Low Stock" },
+      { value: "Out of Stock", label: "Out of Stock" }
+    ],
+    validation: {
+      required: "Status is required"
+    }
+  }
+];

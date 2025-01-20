@@ -7,8 +7,8 @@ import { Calendar } from "../ui/calendar";
 import { format } from "date-fns";
 import { Button } from "../ui/button";
 
-
 const Commonform=({formControls,formData,setFormData,buttonText,onSubmit})=>{
+    
     function renderBasedOnType(controlItem){
         let value=formData[controlItem.name] || '' //control data name and form data should be same 
         let element=null;
