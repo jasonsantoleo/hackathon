@@ -4,7 +4,9 @@
 SustainAI Dashboard is an intelligent business analytics platform that leverages AI to provide real-time insights and sustainability metrics. The platform analyzes sales, inventory, and customer data to generate actionable insights while considering environmental impact and sustainable business practices.
 ## WORK FLOW 
 <img width="815" alt="Screenshot 2025-01-20 at 11 14 37 PM" src="https://github.com/user-attachments/assets/bd1f4c39-6eae-4737-b125-232f2771b2d3" />
+
 ## Workflow Diagram
+
 <img width="421" alt="Screenshot 2025-01-20 at 11 19 27 PM" src="https://github.com/user-attachments/assets/d9087c79-6e7e-4e86-b6b6-117464c49a73" />
 
     
