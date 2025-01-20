@@ -1,25 +1,15 @@
 # SustainAI Dashboard
+
+## Introduction
+SustainAI Dashboard is an intelligent business analytics platform that leverages AI to provide real-time insights and sustainability metrics. The platform analyzes sales, inventory, and customer data to generate actionable insights while considering environmental impact and sustainable business practices.
 ## WORK FLOW 
 <img width="815" alt="Screenshot 2025-01-20 at 11 14 37 PM" src="https://github.com/user-attachments/assets/bd1f4c39-6eae-4737-b125-232f2771b2d3" />
-
-f Introduction
-SustainAI Dashboard is an intelligent business analytics platform that leverages AI to provide real-time insights and sustainability metrics. The platform analyzes sales, inventory, and customer data to generate actionable insights while considering environmental impact and sustainable business practices.
-
 ## Workflow Diagram
+<img width="421" alt="Screenshot 2025-01-20 at 11 19 27 PM" src="https://github.com/user-attachments/assets/d9087c79-6e7e-4e86-b6b6-117464c49a73" />
 
-<antArtifact identifier="workflow-diagram" type="application/vnd.ant.mermaid" title="System Workflow">
-flowchart TD
-    A[Client Dashboard] -->|User Interaction| B[React Frontend]
-    B -->|API Requests| C[Express Server]
-    C -->|Data Processing| D[ML Service]
-    D -->|Generate Insights| E[ML Service Insights]
-    E -->|Response| C
-    C -->|JSON Response| B
-    B -->|Update UI| A
     
-## Tech Stack
-# Frontend
-
+# Tech Stack
+## Frontend
 React 18
 Redux for state management
 Tailwind CSS for styling
