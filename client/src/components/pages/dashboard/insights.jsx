@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { Skeleton } from "../../ui/skeleton"
-import { Lightbulb } from "lucide-react"
+import { Badge, Lightbulb } from "lucide-react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAiInsights } from "../../../store/service/serviceReducer"
-
+import { dummyInsights } from "../../../config/test"
+import { Card, CardContent, CardHeader } from "../../ui/card"
 const dummydata={
     "salesData": {
       "monthly_sales": [
@@ -131,16 +132,51 @@ const InsightCard=()=>{
         console.log(insights);
         setisLoading(false)
     },[insights])
+    const cleanTitle = (title) => {
+        return title.replace(/^[#\s]+/, '').replace(/^Title:\s*/, '');
+    };
+    const getPriorityColor = (priority) => {
+        switch (priority?.toLowerCase()) {
+            case 'high':
+                return 'bg-red-100 text-red-800';
+            case 'medium':
+                return 'bg-yellow-100 text-yellow-800';
+            case 'low':
+                return 'bg-green-100 text-green-800';
+            default:
+                return 'bg-gray-100 text-gray-800';
+        }
+    };
     return (
-        <div className="p-4  rounded-lg  flex flex-row ml-4 ">
-            <Lightbulb className="pt-1 size-10"/>
-            {
-                isLoading?<Skeleton className="h-10 w-full" />:
-                <div>
-                   
-                </div>
-            }
-        </div>
+            <div className="p-4 flex flex-colml-4">
+                
+                {
+                    isLoading ? <Skeleton className="h-10 w-full g" /> :
+                    <div className="">
+                        {dummyInsights.map((insight, index) => (
+                            <Card key={index} className="w-full bg-white shadow-sm rounded-none mt-4">
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <Lightbulb className="pt-0 size-20" />
+                                    <h3 className="font-semibold text-lg">
+                                        {cleanTitle(insight.title)}
+                                    </h3>
+                                    <Badge
+                                        variant="secondary" 
+                                        className={getPriorityColor(insight.priority)}
+                                    >
+                                        {insight.priority}
+                                    </Badge>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600">
+                                        {insight.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                }
+            </div>
     )
 }
 export default InsightCard

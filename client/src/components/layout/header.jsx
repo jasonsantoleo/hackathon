@@ -8,13 +8,14 @@ import {
   Users, 
   Settings 
 } from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate=useNavigate()
   const navigationItems = [
-    { label: 'Dashboard', icon: <LayoutDashboard size={16} className="mr-2" /> },
-    { label: 'Orders', icon: <ShoppingBag size={16} className="mr-2" /> },
-    { label: 'Customers', icon: <Users size={16} className="mr-2" /> },
-    { label: 'Settings', icon: <Settings size={16} className="mr-2" /> }
+    { label: 'Dashboard', icon: <LayoutDashboard size={16} className="mr-2" /> ,path:'/'},
+    { label: 'inventory', icon: <ShoppingBag size={16} className="mr-2" /> ,path:'/inventory'},
+    { label: 'sales', icon: <Users size={16} className="mr-2" /> ,path:'/order'},
   ];
 
   return (
@@ -27,6 +28,7 @@ const Header = () => {
       <nav className="flex flex-row gap-8">
         {navigationItems.map((item, index) => (
           <Button 
+            onClick={()=>navigate(item.path)}
             key={index} 
             variant="ghost" 
             className="flex items-center hover:bg-gray-100"

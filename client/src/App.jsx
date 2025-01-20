@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import Dashboardpages from "./components/pages/dashboard/dashboardPage";
+import { Route, Routes } from "react-router-dom";
+import ProductList from "./components/pages/orderpage/orderPages";
+import Inventory from "./components/pages/inventory/inventory";
 
 const initialFormData = {
   fullName: "",
@@ -13,10 +16,13 @@ function App() {
   const [formData, setFormData] = useState(initialFormData);
   useEffect(()=>{
     console.log(formData.startDate);
-    
   },[formData])
   return (
-   <Dashboardpages/>
+    <Routes>
+      <Route path="/" element={<Dashboardpages/>}/>
+      <Route path="/order" element={<ProductList/>}/>
+      <Route path='/inventory' element={<Inventory/>}/>
+    </Routes>
   )
 }
 
