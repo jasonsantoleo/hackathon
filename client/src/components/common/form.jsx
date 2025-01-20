@@ -8,7 +8,7 @@ import { format } from "date-fns";
 import { Button } from "../ui/button";
 
 
-const Commonform=({formControls,formData,setFormData})=>{
+const Commonform=({formControls,formData,setFormData,buttonText,onSubmit})=>{
     function renderBasedOnType(controlItem){
         let value=formData[controlItem.name] || '' //control data name and form data should be same 
         let element=null;
@@ -96,15 +96,17 @@ const Commonform=({formControls,formData,setFormData})=>{
         return element
     }
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <div className="flex flex-col gap-3">
                 {
-                    formControls && formControls.map((controlItem)=>
-                    <div className="grid w-full gap-1.5">
+                    formControls && formControls.map((controlItem,index)=>
+                    <div key={index} className="grid w-full gap-1.5">
+                        
                         {renderBasedOnType(controlItem)}
                     </div>
                     )
                 }
+                <Button type='submit' className='mt-2 w-full' >{buttonText || 'Submit'}</Button>
             </div>
         </form>
     )

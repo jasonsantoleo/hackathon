@@ -51,3 +51,43 @@ export const testFormControls = [
         priority: "Medium"
     }
 ];
+export const LoginFormControls=[
+  {
+      name:'email',
+      label:"email",
+      placeholder:"enter your email",
+      componentType:'input',
+      type:"text"
+  },
+  {
+      name:"password",
+      label:"Password",
+      placeholder:"**********",
+      componentType:'input',
+      type:'text'
+  }
+]
+
+export const registerFormControls=[
+  {
+      name:'username',
+      label:"User Name",
+      placeholder:"Enter your  user name",
+      componentType:'input',
+      type:"text",  
+  },
+  {
+      name:'email',
+      label:"Emain",
+      placeholder:"Enter your  Email",
+      componentType:'input',
+      type:"email",   
+  },
+  {
+      name:'password',
+      label:"Password",
+      placeholder:"Enter your  password",
+      componentType:'input',
+      type:"text",  
+  }
+]
