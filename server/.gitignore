@@ -1,0 +1,17 @@
+node_modules
+.env
+dist/
+../../../../
+.CFUserTextEncoding
+.bash_history
+.bash_sessions/
+.cache/
+.config/
+.expo/
+.gitconfig
+.zsh_history
+node_modules/
+*.swp
+*.dSYM/
+.idea/
+.vscode/
